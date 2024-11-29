@@ -1,0 +1,38 @@
+extends ../../layouts/auth.pug
+include ../../mixins/alert.pug
+
+block main 
+    +alert-error(5000)
+    +alert-success(5000)
+
+    .bgDefault
+        .container
+            .row
+                .col-12.mb-5.text-center
+                    .inner-welcome Chào mừng bạn đến với Cinestar!
+            .row.justify-content-center
+                .col-md-6.col-lg-4
+                    .inner-title.text-center.mb-4.mt-4 Đăng Nhập Quản Trị
+                    form(action=`${prefixAdmin}/auth/login` method="POST")
+                        .form-group
+                            input.form-control.mb-4(
+                                type="Email" 
+                                placeholder="Email" 
+                                name="email" 
+                                required 
+                                autocomplete="off"
+                            )
+                        .form-group.pass-admin
+                            input.form-control.mb-4(
+                                type="password" 
+                                placeholder="Mật khẩu" 
+                                name="password" 
+                                required 
+                                autocomplete="off" 
+                                class="input-pass-admin"
+                            )
+                            i.fa-solid.fa-eye.hidden.eye-loginAdmin
+                            i.fa-solid.fa-eye-slash.eye-slash-loginAdmin
+                        .form-group
+                            button.form-control.btn(type="submit") ĐĂNG NHẬP
+                    

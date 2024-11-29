@@ -1,0 +1,64 @@
+extends ../../layouts/default.pug
+
+block main 
+    #body.body
+        .container
+            .heading TRANG THANH TOÁN
+            .process.d-flex
+                a.process__step.active(href="#")
+                    .process__step-number 1
+                    .process__step-txt THÔNG TIN KHÁCH HÀNG
+                .process__step-line
+                a.process__step(href="#")
+                    .process__step-number 2
+                    .process__step-txt THANH TOÁN
+                .process__step-line
+                a.process__step(href="#")
+                    .process__step-number 3
+                    .process__step-txt THÔNG TIN VÉ PHIM
+            .content.row.pt-5.font-payment
+                .col-xl-6
+                    form(action="")
+                        .content__info Họ và tên
+                        input.content__input(type="text", placeholder="Họ và tên")
+                        .content__info Số điện thoại
+                        input.content__input(type="text", placeholder="Số điện thoại")
+                        .content__info Email
+                        input.content__input(type="email", placeholder="Email")
+                        .content__condition.d-flex
+                            input(type="checkbox").mr-1
+                            | Đảm bảo mua vé đúng số tuổi quy định.
+                        .content__condition.d-flex
+                            input(type="checkbox").mr-1
+                            | Đồng ý với điều khoản của Cinestar.
+                        button.submit Tiếp tục
+                .content__right.col-xl-6.mb-5
+                    .content__right-heading CƯỜI XUYÊN BIÊN GIỚI
+                    .content__address
+                        p Cinestar Hà Nội
+                        | Quận Nam Từ Liêm, Hà Nội
+                    .content__time
+                        p Thời gian
+                        | 20:00
+                    .content__right-info.my-4.d-flex
+                        .content__right-detail.me-5
+                            p Phòng chiếu
+                            | 05
+                        .content__right-detail.me-5
+                            p Số vé
+                            | 01
+                        .content__right-detail
+                            p Loại vé
+                            | Người lớn
+                    .content__right-info.d-flex
+                        .content__right-detail.me-5
+                            p Loại ghế
+                            | Ghế thường
+                        .content__right-detail
+                            p Số ghế
+                            | A01
+                    .content__attach Bắp nước
+                    .content__right-line
+                    .content__pay.d-flex.justify-content-between
+                        .content__pay-lable SỐ TIỀN CẦN THANH TOÁN
+                        .content__pay-mn 100000 VNĐ

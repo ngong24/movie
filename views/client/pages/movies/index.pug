@@ -1,0 +1,25 @@
+//- Trang danh sách phim
+extends ../../layouts/default.pug
+
+block main
+    .body.pb-5
+        #content
+            .container.px-lg-5
+                .content__title
+                    .content__title-showing PHIM ĐANG CHIẾU
+                .row.g-5
+                    each item in movies
+                        .col-6.col-sm-6.col-md-4.col-lg-3.col-xl-3.content__contain
+                            .content__item.content__over
+                                a.content__item-link(href=`/movies/detail/${item.slug}`)
+                                    .content__item-img
+                                        .content__item-overlay
+                                        img(src=item.thumbnail alt=item.title)
+                                    .content__item-infor
+                                        .content__item-name #{item.title}
+                                        .content__item-action
+                                            .content__item-action-span
+                                                img(src="/client/images/icon-play-vid.svg" alt="")
+                                                .content__item-action-trailer Xem Trailer
+                                            .content__item-action-button ĐẶT VÉ
+                        

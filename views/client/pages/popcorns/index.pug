@@ -1,0 +1,20 @@
+extends ../../layouts/default.pug
+
+block main
+    .body.pb-5
+        #content
+            .container.px-lg-5
+                .content__title
+                    .content__title-showing BẮP NƯỚC
+                .row.g-5.my-5(style="color: #fff; font-weight: 600")
+                        each item in popcorns
+                            .choose-corn__item.col-12.col-sm-6.col-md-4.col-lg-4.col-xl-4.d-flex
+                                .choose-corn__item-img
+                                    img(src=item.thumbnail, alt=item.title)
+                                .choose-corn__item-info.px-4
+                                    .choose-corn__item-name #{item.title}
+                                    .choose-corn__item-desc #{item.description}
+                                    .choose-corn__item-price #{item.price},000VND
+                                    .choose-corn__item-count
+                                        input(type="number", min="0", max="10", placeholder="0")
+                        

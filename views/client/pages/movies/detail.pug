@@ -1,0 +1,239 @@
+extends ../../layouts/default.pug
+
+block main
+    #body.body
+        .container.px-lg-5
+            .row.mt-5
+                .col-5.col-md-5.col-lg-5.col-xl-5
+                    .info__img
+                        img.img-fluid(src=movies.thumbnail alt=movies.title)
+                .info.col-7.col-md-7.col-lg-7.col-xl-7
+                    .info__name #{movies.title}
+                    .info__item
+                        img(src="/client/images/icon-tag.svg" alt="")
+                        .info__item-category #{movies.movie_category}
+                    .info__item
+                        img(src="/client/images/icon-clock.svg" alt="")
+                        .info__item-category #{movies.duration}
+                    .info__item
+                        i.fa-solid.fa-earth-asia
+                        .info__item-category #{movies.country}
+                    .info__item
+                        img(src="/client/images/subtitle.svg" alt="")
+                        .info__item-category Phụ đề
+                    .info__sub-title.mt-5.d-none.d-sm-none.d-md-block.d-lg-block.d-xl-block
+                        .info__decr-lable Mô tả
+                        .info__decr-inf.my-3
+                            .info__decr-actor !{movies.description}
+                    .info__sub-title.mt-5.d-none.d-sm-none.d-md-block.d-lg-block.d-xl-block
+                        .info__decr-lable NỘI DUNG PHIM
+                        .info__decr-text.my-3 !{movies.movie_content}
+                    .detail__ct.my-5
+                        a.d-flex.align-items-center(href="#")
+                            img(src="/client/images/icon-play-vid.svg" alt="")
+                            .detail__ct-watch Xem Trailer
+
+            form(
+                action=`/ticket/add/${movies.id}`
+                method="POST"
+                id="form-ticket"
+            )
+                input(type="hidden" name="theater" id="theaterInput")
+                input(type="hidden" name="address" id="addressInput")
+                input(type="hidden" name="time" id="timeInput")
+                input(type="hidden" name="totalPrice" id="totalPrice")
+                input(type="hidden" name="adult_name" id="adult_name")
+                input(type="hidden" name="child_name" id="child_name")
+
+                .shtime
+                    .shtime__heading LỊCH CHIẾU
+                    .shtime__li.d-flex.justify-content-center
+                        a.shtime__li-item.active(href="#")
+                            .shtime__li-month 14/12
+                            .shtime__li-day Thứ Năm
+                        a.shtime__li-item(href="#")
+                            .shtime__li-month 15/12
+                            .shtime__li-day Thứ Sáu
+                        a.shtime__li-item(href="#")
+                            .shtime__li-month 16/12
+                            .shtime__li-day Thứ Bảy
+                        a.shtime__li-item(href="#")
+                            .shtime__li-month 17/12
+                            .shtime__li-day Chủ Nhật
+                .theater-li.row
+                    .theater-li__header.d-flex.align-items-center.justify-content-between.col-12.col-sm-12
+                        .theater-li__lable DANH SÁCH RẠP
+                        .theater-li__local.d-flex.justify-content-center.align-items-center
+                            i.fa-solid.fa-location-dot.mr-2 
+                            | Hồ Chí Minh
+                    .theater-li__li.my-5.col-12
+                        a.theater-li__li-item.d-flex.justify-content-between.align-items-center(
+                            href="#theater__show1", data-bs-toggle="collapse", data-bs-target="#theater__show1"
+                        )
+                            .theater-li__li-lable Cinestar Nguyễn Trãi
+                            i.fa-solid.fa-chevron-down
+                        #theater__show1.theater-li__li-addr.collapse.show 
+                            | 271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, Thành Phố Hồ Chí Minh
+                            .theater-li__time.d-flex
+                                .theater-li__time-li(
+                                    data-theater="Cinestar Nguyễn Trãi" 
+                                    data-address="271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, Thành Phố Hồ Chí Minh" 
+                                    data-timeSub="20:00"
+                                ) 20:00
+                                .theater-li__time-li(
+                                    data-theater="Cinestar Nguyễn Trãi" 
+                                    data-address="271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, Thành Phố Hồ Chí Minh" 
+                                    data-timeSub="22:00"
+                                ) 22:00
+                    .theater-li__li.my-5.col-12
+                        a.theater-li__li-item.d-flex.justify-content-between.align-items-center(
+                            href="#theater__show2", data-bs-toggle="collapse", data-bs-target="#theater__show2"
+                        )
+                            .theater-li__li-lable Cinestar Hai Bà Trưng
+                            i.fa-solid.fa-chevron-down
+                        #theater__show2.theater-li__li-addr.collapse.show 
+                            | 135 Hai Bà Trưng, Phường Bến Nghé ,Quận 1,Thành Phố Hồ Chí Minh
+                            .theater-li__time.d-flex
+                                .theater-li__time-li(
+                                    data-theater="Cinestar Hai Bà Trưng" 
+                                    data-address="135 Hai Bà Trưng, Phường Bến Nghé ,Quận 1,Thành Phố Hồ Chí Minh" 
+                                    data-timeSub="21:00"
+                                ) 21:00
+                                .theater-li__time-li(
+                                    data-theater="Cinestar Hai Bà Trưng" 
+                                    data-address="135 Hai Bà Trưng, Phường Bến Nghé ,Quận 1,Thành Phố Hồ Chí Minh" 
+                                    data-timeSub="23:00"
+                                ) 23:00
+                .select.my-5.py-5
+                    .select__heading.my-5 CHỌN LOẠI VÉ
+                    .row.justify-content-between
+                        .select__item.col-12.col-sm-12.col-md-6.col-lg-6.col-xl-6
+                            .select__name NGƯỜI LỚN
+                            .select__price.adult__price(
+                                price=movies.ticket_prices.adult
+                            ) #{movies.ticket_prices.adult} VNĐ
+                            .select__count  
+                                input(
+                                    type="number", 
+                                    min="0", 
+                                    max="16", 
+                                    name='adult_quantity'
+                                    movie-id=ticket.tickets.movie_id
+                                    placeholder="0")
+                        .select__item.col-12.col-sm-12.col-md-6.col-lg-6.col-xl-6
+                            .select__name TRẺ EM
+                            .select__price.child__price(
+                                price=movies.ticket_prices.child
+                            ) #{movies.ticket_prices.child} VNĐ
+                            .select__count
+                                input(
+                                    type="number", 
+                                    min="0", 
+                                    max="16", 
+                                    name='child_quantity'
+                                    movie-id=ticket.tickets.movie_id
+                                    placeholder="0")
+                .select.my-5.py-5
+                    .select__heading.py-5 CHỌN GHẾ - RẠP
+                    .select-chair__screen
+                        img(src="/client/images/img-screen.png", alt="")
+                    .select-chair__li
+                        .select-chair__li-item A
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="A01", hidden)
+                            span A01
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="A02", hidden)
+                            span A02
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="A03", hidden)
+                            span A03
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="A04", hidden)
+                            span A04
+                    .select-chair__li
+                        .select-chair__li-item B
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="B01", hidden)
+                            span B01
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="B02", hidden)
+                            span B02
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="B03", hidden)
+                            span B03
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="B04", hidden)
+                            span B04
+                    .select-chair__li
+                        .select-chair__li-item C
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="C01", hidden)
+                            span C01
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="C02", hidden)
+                            span C02
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="C03", hidden)
+                            span C03
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="C04", hidden)
+                            span C04
+                    .select-chair__li
+                        .select-chair__li-item D
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="D01", hidden)
+                            span D01
+                        label.select-chair__li-chair
+                            input(type="checkbox", name="seats", value="D02", hidden)
+                            span D02
+                        label.select-chair__li-chair.disabled-chair
+                            input(type="checkbox", name="seats", value="D03", hidden, disabled)
+                            span D03
+                        label.select-chair__li-chair.disabled-chair
+                            input(type="checkbox", name="seats", value="D04", hidden, disabled)
+                            span D04
+                    .select-chair__note.d-flex.w-100.mt-5
+                        .select-chair__note-i
+                            .select-chair__note-img.select-chair__note-empty
+                            .mx-4 Ghế trống
+                        .select-chair__note-i
+                            .select-chair__note-img.select-chair__note-select
+                            .mx-4 Ghế chọn
+                        .select-chair__note-i
+                            .select-chair__note-img.select-chair__note-book
+                            .ms-4 Ghế đã đặt
+                .choose-corn.mt-5.pt-5
+                    .select__heading.my-5 CHỌN BẮP NƯỚC
+                    .row.g-5.my-5
+                        each item in popcorns
+                            .choose-corn__item.col-12.col-sm-6.col-md-4.col-lg-4.col-xl-4.d-flex
+                                .choose-corn__item-img
+                                    img(src=item.thumbnail, alt=item.title)
+                                .choose-corn__item-info.px-4
+                                    .choose-corn__item-name #{item.title}
+                                    .choose-corn__item-desc #{item.description}
+                                    .choose-corn__item-price #{item.price} VNĐ
+                                    .choose-corn__item-count
+                                        input(type="hidden", name="popcorn_id" value=item.id)
+                                        input(
+                                            type="number", 
+                                            name="popcorn_quantity" 
+                                            min="0", 
+                                            max=item.stock,
+                                            data-price=item.price
+                                            placeholder="0"
+                                        )
+                .bill.position-fixed.bottom-0
+                    .container.px-lg-5.px-5
+                        .bill__wr.row.d-flex.justify-content-between
+                            .bill__item
+                                .bill__name-combo #{movies.title}
+                                .bill__addr-combo
+                            .bill__item.d-flex
+                                .bill__right.ps-3.py-2
+                                    .bill__right-price.d-flex.align-items-center
+                                        p.m-0.pe-3 Tạm tính:
+                                        .bill__pright-pr 0 VNĐ
+                                    .bill__right-btn
+                                        button(type='submit') ĐẶT VÉ

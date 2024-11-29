@@ -1,0 +1,114 @@
+extends ../../layouts/default.pug 
+include ../../mixins/alert.pug
+
+
+block main 
+    +alert-error(5000)
+    +alert-success(5000)
+
+    h1(class="mb-4 page-title") Tạo bắp nước
+
+    form(
+        action=`${prefixAdmin}/popcorns/create`
+        id="form-create-popcorns"
+        method="POST"
+        enctype="multipart/form-data"
+    )
+        
+        div(class="form-group")
+            label(for="title") Tiêu đề
+                span(style="color:red; margin-left:2px") * 
+            input(
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                required 
+            )
+        div(class="form-group")
+            label(for="description") Mô tả
+                span(style="color:red; margin-left:2px") * 
+            input(
+                type="text"
+                class="form-control"
+                id="description"
+                name="description"
+            )
+        div(class="form-wrap")
+            div(class="form-group width-input")
+                label(for="price") Giá
+                    span(style="color:red; margin-left:2px") * 
+                input(
+                    type="text"
+                    class="form-control"
+                    id="price"
+                    name="price"
+                )
+            div(class="form-group width-input")
+                label(for="stock") Số lượng
+                    span(style="color:red; margin-left:2px") * 
+                input(
+                    type="text"
+                    class="form-control"
+                    id="stock"
+                    name="stock"
+                )
+            div(class="form-group width-input")
+                label(for="position") Vị trí
+                    span(style="color:red; margin-left:2px") * 
+                input(
+                    type="number"
+                    class="form-control"
+                    id="position"
+                    name="position"
+                    placeholder="Tự động tăng"
+                    min="1"
+                )
+        div(
+            class="form-group"
+            upload-image
+        )
+            label(for="thumbnail") Ảnh
+                span(style="color:red; margin-left:2px") * 
+            input(
+                type="file"
+                class="form-control-file"
+                id="thumbnail"
+                name="thumbnail"
+                accept="image/*"
+                upload-image-input
+            )
+            img(
+                src=""
+                upload-image-preview
+                class="image-preview"
+            )
+            button(
+                type="button"
+                class="close hidden-close"
+            ) X
+        div(class="form-group form-check form-check-inline")
+            input(
+                type="radio"
+                class="form-check-input"
+                id="statusActive"
+                name="status"
+                value="active"
+                checked
+            )
+            label(for="statusActive" class="form-check-label") Hoạt động 
+        div(class="form-group form-check form-check-inline")
+            input(
+                type="radio"
+                class="form-check-input"
+                id="statusActive"
+                name="status"
+                value="inactive"
+            )
+            label(for="statusActive" class="form-check-label") Dừng hoạt động
+        div(class="form-group")
+            button(
+                type="submit"
+                class="btn waves-effect waves-light btn-primary"
+            ) Tạo mới
+            

@@ -1,0 +1,290 @@
+/* Header */
+.header {
+    background: #fff;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
+}
+
+.header .inner-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .inner-logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: #100E2A;
+    margin-left: 4px;
+}
+
+.header .inner-logo img {
+    width: 36px;
+    height: 36px;
+}
+
+/* End header */
+
+/* Body */
+.body .sider {
+    width: 220px;
+    background: #100E2A;
+    height: calc(100vh - 56px);
+    position: fixed;
+    top: 68px;
+    left: 0;
+}
+
+.body .main {
+    margin: 0 15px 15px 15px;
+    position: relative;
+    left: 220px;
+    width: calc(100% - 220px);
+    padding-top: 15px;
+    padding-right: 20px;
+
+}
+
+.body .main-bg {
+    background: #efeff6;
+    overflow-x: hidden;
+}
+
+/* End body */
+
+/* Sider */
+.sider {
+    padding: 14px;
+}
+
+.sider .inner-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sider .inner-menu ul li a {
+    color: #a4aadb;
+    display: block;
+    padding: 12px 12px 12px 0;
+}
+
+.sider .nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 12px;
+}
+
+.sider .nav-link i {
+    color: #7a80b4;
+    font-size: 14px;
+    margin-bottom: -3px;
+    margin-right: 8px;
+}
+
+.sider .nav-link.active,
+.sider .nav-link:hover {
+    background-color: #242849;
+    border-radius: 2px;
+}
+
+.sider .nav-link.active a,
+.sider .nav-link:hover a {
+    color: #fff;
+}
+
+
+/* End sider */
+
+
+/* Alert */
+[show-alert] {
+    position: fixed;
+    top: 70px;
+    right: 15px;
+    font-size: 16px;
+    padding-right: 30px;
+    z-index: 9999;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+[show-alert].alert-hidden {
+    animation-name: alert-hidden;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes alert-hidden {
+    from {
+        right: 15px;
+    }
+
+    to {
+        right: -100%;
+        display: none;
+    }
+}
+
+[show-alert] [close-alert] {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+}
+
+/* End Alert */
+
+/* Image Preview */
+.image-preview {
+    width: 150px;
+    height: auto;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.image-preview[src=""] {
+    display: none;
+}
+
+.close.hidden-close {
+    display: none;
+}
+
+.close {
+    position: absolute;
+    font-size: 16px;
+}
+
+/* End Image Preview */
+
+/* Login Form */
+.bgDefault {
+    /* background-image: url(/admin/images/login-bg.webp); */
+    background-image: url(/admin/images/banner.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding-top: 112px;
+    position: relative;
+}
+
+.bgDefault::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.bgDefault .form-control {
+    color: #fff;
+}
+
+.bgDefault .inner-welcome {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.bgDefault .inner-title {
+    color: #fff;
+    font-size: 22px;
+}
+
+.bgDefault input {
+    height: 50px;
+    color: #fff;
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: 0.3s;
+}
+
+.bgDefault input:hover,
+.bgDefault input:focus {
+    background: transparent;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.bgDefault input::placeholder {
+    color: #DBDCDC;
+}
+
+.bgDefault .btn {
+    color: #000;
+    background: #FBCEB5;
+    border: 1px solid #FBCEB5;
+    border-radius: 40px;
+    height: 50px;
+    box-shadow: none;
+}
+
+/* End Login Form */
+
+
+/* Eye pass */
+.bgDefault .pass-admin {
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+.bgDefault .fa-eye-slash,
+.bgDefault .fa-eye {
+    position: absolute;
+    top: calc(100% / 2 - 5px);
+    right: 15px;
+    font-size: 14px;
+    color: #DBDCDC;
+    cursor: pointer;
+}
+
+/* End Eye pass */
+
+/* Danh sách phim */
+.table-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.form-wrap {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+.form-group label {
+    font-size: 14px;
+}
+
+/* Hết Danh sách phim */

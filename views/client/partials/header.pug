@@ -1,0 +1,103 @@
+div(id='header navbar navbar-expand-sm')
+    .header
+        .container.px-lg-5
+            .header__top.d-flex.justify-content-between.align-items-center
+                .header__top-left.navbar-brand
+                    .header__logo
+                        a(href="/")
+                            img(src="/client/images/header-logo.webp", alt="header__logo", class="header__logo-link")
+                .header__sm-md.d-block.d-md-none.d-xl-none
+                    .header__sm-select.d-flex.justify-content-between
+                        | Chọn rạp
+                        i.fa-solid.fa-caret-down
+                    .header__sm-mn2
+                        ul.header__sm-li-m
+                            li.header__sm-item-m: a(href="#") Cinestar Hà Nội
+                            li.header__sm-item-m: a(href="#") Cinestar Hà Tĩnh
+                            li.header__sm-item-m: a(href="#") Cinestar Nghệ Anh
+                            li.header__sm-item-m: a(href="#") Cinestar Thanh Hóa
+                            li.header__sm-item-m: a(href="#") Cinestar Hải Phòng
+                            li.header__sm-item-m: a(href="#") Cinestar Hà Nam
+                button.header__right.navbar-toggler.d-block.d-md-none(type="button")
+                    span.navbar-toggler-icon
+                .header__sm-r
+                    ul.header__sm-li
+                        li.header__sm-item: a(href="") TRANG CHỦ
+                        li.header__sm-item: a(href="") ĐẶT VÉ
+                        li.header__sm-item: a(href="") BẮP NƯỚC
+                        li.header__sm-item: a(href="") LỊCH CHIẾU
+                        li.header__sm-item: a(href="") KHUYẾN MÃI
+                        li.header__sm-item: a.btn-login(href="") THÀNH VIÊN
+                    ul.header__sm-li
+                        li.header__sm-item2: a(href="") Dịch vụ sự kiện
+                        li.header__sm-item2: a(href="") Giới thiệu
+                        li.header__sm-item2: a(href="") Tất cả các dịch vụ giải trí
+                        li.header__sm-item2: a(href="") Ngôn ngữ: Việt Nam
+                .header__top-middle.d-none.d-md-flex.d-xl-flex
+                    .header__top-button
+                        a(href="/movies").header__buy-tickets ĐẶT VÉ NGAY
+                    .header__top-button
+                        a(href="/popcorns").header__buy-popcorn ĐẶT BẮP NGAY
+                .header__top-right.d-none.d-xl-flex
+                    .header__top-search.d-flex
+                        form(
+                            action="/search"
+                            method="GET"
+                        )
+                            input.header__top-search-ip(
+                                type="text"
+                                placeholder="Tìm phim, rạp ..."
+                                name="keyword"
+                                value=keyword
+                            )
+                            button(type="submit")
+                                i.fa-solid.fa-magnifying-glass
+                    .header__top-user.d-flex.align-items-center.btn-login
+                        if(user)
+                            i.fa-solid.fa-right-from-bracket(style="font-size: 20px")
+                            a.header__top-user-login.d-none.d-xl-flex.button-logout(href="/user/logout") Đăng xuất
+                        else
+                            a.header__top-user-login.d-none.d-xl-flex(href="/user/login") 
+                                i.fa-regular.fa-user.fa-2x
+                                span Đăng nhập
+                .header__top-right-sm.d-none.d-md-flex.d-xl-none
+                    i.fa-solid.fa-magnifying-glass
+                    i.fa-regular.fa-user.fa-2x.btn-login
+                .header__top-language.d-none.d-md-flex.align-items-center.px-lg-5
+                    img(src="/client/images/co vn.png", alt="flag-vn", class="header__top-flag")
+                    select
+                        option(value="vietnam") Việt Nam
+            .header__middle.align-items-center.d-none.d-md-flex.justify-content-between
+                .header__middle-left.d-flex
+                    .header__middle-theater.header__middle-button.me-4
+                        i.fa-solid.fa-location-dot.mr-1
+                        | Chọn rạp
+                        .header__middle-menu
+                            .row
+                                .header__menu-li.col-lg-4.col-xl-4
+                                    .header__menu2-item: a(href="#") Cinestar Hà Nội
+                                    .header__menu2-item: a(href="#") Cinestar Hà Tĩnh
+                                    .header__menu2-item: a(href="#") Cinestar Nghệ An
+                                .header__menu-li.col-lg-4.col-xl-4
+                                    .header__menu2-item: a(href="#") Cinestar Thanh Hóa
+                                    .header__menu2-item: a(href="#") Cinestar Hà Nam
+                                    .header__menu2-item: a(href="#") Cinestar Hải Phòng
+                                .header__menu-li.col-lg-4.col-xl-4
+                                    .header__menu2-item: a(href="#") Cinestar Ninh Bình
+                                    .header__menu2-item: a(href="#") Cinestar TP.HCM
+                                    .header__menu2-item: a(href="#") Cinestar Bình Dương
+                    .header__middle-showtimes.header__middle-button.ms-5
+                        i.fa-solid.fa-calendar-days.mr-1
+                        | Lịch chiếu
+                .header__middle-right
+                    .header__middle-right-item.d-flex
+                        a.header__middle-li.header__middle-button.px-lg-4(href="#") Khuyến mãi
+                        a.header__middle-li.header__middle-button.px-lg-4(href="#") Thuê sự kiện
+                        a.header__middle-li.header__middle-button.px-lg-4(href="#") Tất cả các giải trí
+                        a.header__middle-li.header__middle-button.px-lg-4(href="#") Giới thiệu
+form(
+        action=""
+        method="POST"
+        id="form-logout"
+        data-path=`/user/logout`
+    )

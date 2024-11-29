@@ -1,0 +1,52 @@
+extends ../../layouts/default.pug
+
+block main 
+    #register
+        .modals_register
+            .modal
+                .modal__overlay
+                .register__middle-info
+                    .header__middle-info-close
+                        i.fa-solid.fa-xmark
+                    form(
+                        action=`/user/register`
+                        method="POST"
+                    )
+                        .header__middle-info-user
+                            .header__middle-info-email
+                                span.header__middle-info-icon.ti-user
+                                input(type="text", class="header__middle-user-button", placeholder="Họ và tên", name="fullName", required)
+                            .header__middle-info-email
+                                span.header__middle-info-icon.ti-email
+                                input(type="email", class="header__middle-user-button", placeholder="Email", name="email", required)
+                            .header__middle-info-email
+                                span.header__middle-info-icon.ti-mobile
+                                input(type="text", class="header__middle-user-button", placeholder="Số điện thoại", name="phone", id="phoneNumber" required)
+                            div#phone-error(style="color: red; display: none; font-family: 'Josefin Sans'; font-size: 12px")
+                            .header__middle-info-email
+                                i.header__middle-info-icon.ti-lock
+                                input(type="password", class="header__middle-user-button input-pass", placeholder="Mật khẩu", name="password", id="password")
+                                i.fa-solid.fa-eye.hidden.eye-pass
+                                i.fa-solid.fa-eye-slash.eye-slash-pass
+                            div#error-pass(style="color: red; display: none; font-family: 'Josefin Sans'; font-size: 12px") Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm chữ cái in hoa, chữ cái thường, chữ số và ký tự đặc biệt.
+                            .header__middle-info-email
+                                i.header__middle-info-icon.ti-lock
+                                input(type="password", class="header__middle-user-button eye-pass-confirm", placeholder="Nhập lại mật khẩu", name="confirmPassword", id="confirmPassword", required)
+                                i.fa-solid.fa-eye.hidden.eye-confirm
+                                i.fa-solid.fa-eye-slash.eye-slash-confirm
+                            div#error-pass-confirm(style="color: red; display: none; font-family: 'Josefin Sans'; font-size: 12px") Mật khẩu xác nhận không khớp.
+                            .header__middle-info-checkbox
+                                input(type="checkbox", id="termsCheckbox")
+                                span.header__middle-info_text
+                                    | Bằng việc đăng ký, bạn đồng ý về 
+                                    a(href="#") chính sách
+                                    |  và 
+                                    a(href="#") điều kiện bảo vệ dữ liệu cá nhân 
+                                div#error-message(style="color: red; display: none; font-family: 'Josefin Sans'; font-size: 12px") Vui lòng đồng ý với điều khoản trước khi tiếp tục
+                            div(class="form-group")
+                                button(
+                                    type="submit"
+                                    class="register__middle-button"
+                                ) Đăng ký
+                            .header__middle-form-infor.d-flex.justify-content-end
+                                a(href="/user/login", class="register__middle-form-btn") Đăng Nhập

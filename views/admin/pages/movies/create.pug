@@ -1,0 +1,171 @@
+extends ../../layouts/default.pug 
+include ../../mixins/alert.pug
+
+
+block main 
+    +alert-error(5000)
+    +alert-success(5000)
+
+    h1(class="mb-4 page-title") Thêm sản phẩm mới
+
+    form(
+        action=`${prefixAdmin}/movies/create`
+        id="form-create-movie"
+        method="POST"
+        enctype="multipart/form-data"
+    )
+        div(class="form-group")
+            label(for="title") Tiêu đề
+                span(style="color:red; margin-left:2px") * 
+            input(
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                required 
+            )
+        div(class="form-group")
+            label(for="movie_category") Thể loại phim
+                span(style="color:red; margin-left:2px") * 
+            input(
+                type="text"
+                class="form-control"
+                id="movie_category"
+                name="movie_category"
+            )
+        div(class="form-wrap")
+            div(class="form-group width-input")
+                label(for="country") Quốc gia
+                    span(style="color:red; margin-left:2px") * 
+                input(
+                    type="text"
+                    class="form-control"
+                    id="country"
+                    name="country"
+                )
+            div(class="form-group width-input")
+                label(for="adult") Giá vé người lớn
+                    span(style="color:red; margin-left:2px") * 
+                input(
+                    type="text"
+                    class="form-control"
+                    id="adult"
+                    name="ticket_prices[adult]"
+                )
+            div(class="form-group width-input")
+                label(for="child") Giá vé trẻ em
+                    span(style="color:red; margin-left:2px") * 
+                input(
+                    type="text"
+                    class="form-control"
+                    id="child"
+                    name="ticket_prices[child]"
+                )
+        div(class="form-group form-check form-check-inline")
+            input(
+                type="radio"
+                class="form-check-input"
+                id="featured1"
+                name="featured"
+                value="1"
+            )
+            label(for="featured1" class="form-check-label") Phim nổi bật
+        div(class="form-group form-check form-check-inline")
+            input(
+                type="radio"
+                class="form-check-input"
+                id="featured0"
+                name="featured"
+                value="0"
+                checked
+            )
+            label(for="featured0" class="form-check-label") Không
+        div(class="form-wrap")
+            div(class="form-group mr-2")
+                label(for="desc") Mô tả
+                    span(style="color:red; margin-left:2px") * 
+                textarea(
+                    class="form-control textarea-mce"
+                    id="desc"
+                    name="description"
+                    rows="4"
+                )
+            div(class="form-group ml-2")
+                label(for="movie_content") Nội dung phim
+                    span(style="color:red; margin-left:2px") * 
+                textarea(
+                    class="form-control textarea-mce"
+                    id="movie_content"
+                    name="movie_content"
+                    rows="4"
+                )
+        div(class="form-wrap")
+            div(
+                class="form-group"
+                upload-image
+            )
+                label(for="thumbnail") Ảnh
+                    span(style="color:red; margin-left:2px") * 
+                input(
+                    type="file"
+                    class="form-control-file"
+                    id="thumbnail"
+                    name="thumbnail"
+                    accept="image/*"
+                    upload-image-input
+                )
+                img(
+                    src=""
+                    upload-image-preview
+                    class="image-preview"
+                )
+                button(
+                    type="button"
+                    class="close hidden-close"
+                ) X
+            div(class="form-group width-input")
+                label(for="duration") Thời lượng phim
+                    span(style="color:red; margin-left:2px") * 
+                input(
+                    type="text"
+                    class="form-control"
+                    id="duration"
+                    name="duration"
+                    placeholder="Ví dụ: 120 phút"
+                )
+            div(class="form-group width-input")
+                label(for="position") Vị trí
+                    span(style="color:red; margin-left:2px") * 
+                input(
+                    type="number"
+                    class="form-control"
+                    id="position"
+                    name="position"
+                    placeholder="Tự động tăng"
+                    min="1"
+                )
+        div(class="form-group form-check form-check-inline")
+            input(
+                type="radio"
+                class="form-check-input"
+                id="statusActive"
+                name="status"
+                value="active"
+                checked
+            )
+            label(for="statusActive" class="form-check-label") Hoạt động 
+        div(class="form-group form-check form-check-inline")
+            input(
+                type="radio"
+                class="form-check-input"
+                id="statusActive"
+                name="status"
+                value="inactive"
+            )
+            label(for="statusActive" class="form-check-label") Dừng hoạt động
+        div(class="form-group")
+            button(
+                type="submit"
+                class="btn waves-effect waves-light btn-primary"
+            ) Tạo mới
+            

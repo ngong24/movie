@@ -1,0 +1,114 @@
+//- Trang chủ
+extends ../../layouts/default.pug
+
+block main 
+    .body
+        #banner.container.px-lg-5
+            .slide-show
+                .list-images
+                    .item-image
+                        img(src="/client/images/result_banner8.jpg", alt="")
+                    .item-image
+                        img(src="/client/images/result_banner4.jpg", alt="")
+                    .item-image
+                        img(src="/client/images/banner2.webp", alt="")
+                .btnBanner
+                    .btn-left.btnB
+                        i.fa-solid.fa-chevron-left
+                    .btn-right.btnB
+                        i.fa-solid.fa-chevron-right
+                .index-images
+                    .index-item.index-item-0.active
+                    .index-item.index-item-1
+                    .index-item.index-item-2
+
+        //- fast booking
+        #section.container.px-lg-5
+            .section
+                .section__option
+                    .section__li.row.mx-auto.mx-md-2.mx-lg-5
+                        .col-12.col-sm-12.col-md-2.col-xl-2
+                            .section__title ĐẶT VÉ NHANH
+                        .col-md-2.col-xl-2.my-3.my-sm-0.my-md-0.my-lg-0
+                            .section__chose
+                                | 1. Chọn rạp
+                                i.fa-solid.fa-chevron-down.ml-2
+                                .section__chose-li
+                                    .section__chose-item
+                        .col-md-2.col-xl-2.d-none.d-md-block
+                            .section__chose
+                                | 2. Chọn phim
+                                i.fa-solid.fa-chevron-down.ml-2
+                        .col-md-2.col-xl-2.d-none.d-md-block
+                            .section__chose
+                                | 3. Chọn ngày
+                                i.fa-solid.fa-chevron-down.ml-2
+                        .col-md-2.col-xl-2.d-none.d-md-block
+                            .section__chose
+                                | 4. Chọn suất
+                                i.fa-solid.fa-chevron-down.ml-2
+                        .col-12.col-sm-12.col-md-2.col-xl-2
+                            .section__order Đặt ngay
+
+        //- movies
+        #content
+            .container.px-lg-5
+                .content__title
+                    .content__title-showing PHIM ĐANG CHIẾU
+                .row.g-5
+                    each item in moviesFeatured
+                        .col-6.col-sm-6.col-md-4.col-lg-3.col-xl-3.content__contain
+                            .content__item.content__over
+                                a.content__item-link(href=`/movies/detail/${item.slug}`)
+                                    .content__item-img
+                                        .content__item-overlay
+                                        img(src=item.thumbnail alt=item.title)
+                                        div.tag-featured Nổi bật
+                                    .content__item-infor
+                                        .content__item-name #{item.title}
+                                        .content__item-action
+                                            .content__item-action-span
+                                                img(src="/client/images/icon-play-vid.svg" alt="")
+                                                .content__item-action-trailer Xem Trailer
+                                            .content__item-action-button ĐẶT VÉ
+                .content__see-more
+                    .content__see-btn 
+                        a(href="/movies") XEM THÊM
+
+        //- contact
+        #contact.contact
+            .container.px-lg-5
+                .contact__ct.row.g-5.p-0
+                    .col-lg-6
+                        .contact__item
+                            .contact__item-header LIÊN HỆ VỚI CHÚNG TÔI
+                            a.contact__item-bd1(href="#")
+                                .contact__item-bg
+                                img(src="/client/images/ct-1.webp" alt="")
+                                .contact__item-bd-name FACEBOOK
+                            a.contact__item-bd2(href="#")
+                                .contact__item-bg
+                                .contact__item-bd-name ZALO CHAT
+                                img(src="/client/images/ct-2.webp" alt="")
+                    .col-lg-6
+                        .contact__item2
+                            .contact__item-ct
+                                h1 THÔNG TIN LIÊN HỆ
+                                .contact__item-li
+                                    i.fa-solid.fa-envelope.me-2
+                                    | marketing.movie@gmail.com
+                                .contact__item-li
+                                    i.fa-solid.fa-phone.me-2
+                                    | 0123456789
+                                .contact__item-li
+                                    i.fa-solid.fa-location-dot.me-2
+                                    | Bắc Từ Liêm, Hà Nội
+                            form.contact__form(action="")
+                                input.contact__name(type="text" placeholder="Họ và tên")
+                                input.contact__email(type="text" placeholder="Điền email")
+                                textarea.contact__info(name="" id="" placeholder="Thông tin liên hệ hoặc phản ánh")
+                                button.contact__submit GỬI NGAY
+
+
+
+            

@@ -1,0 +1,21 @@
+header.header   
+    .container-fluid
+        .row.align-items-center 
+            .col-3 
+                .inner-logo
+                    img(src="/admin/images/cinestar.png") 
+                    a(href="/admin/dashboard") ADMIN
+
+            .col-9 
+                div(class="text-right")
+                    a(
+                        href=`${prefixAdmin}/auth/logout`
+                        class="btn btn-danger btn-sm button-logout-admin"
+                    ) Đăng xuất
+
+form(
+        action=""
+        method="GET"
+        id="form-logout"
+        data-path=`${prefixAdmin}/auth/logout`
+    )

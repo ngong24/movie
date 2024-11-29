@@ -1,0 +1,28 @@
+.sider
+    .inner-menu 
+        ul 
+            li.nav-link(class=currentPage === 'dashboard' ? 'active' : '')
+                i.fa-solid.fa-house
+                a(href=`${prefixAdmin}/dashboard`) Tổng quan
+            li.nav-link(class=currentPage === 'movies' ? 'active' : '') 
+                i.fa-solid.fa-film
+                a(href=`${prefixAdmin}/movies`) Phim đang chiếu
+            li.nav-link() 
+                i.fa-solid.fa-compact-disc
+                a(href=`${prefixAdmin}/movies-upcoming`) Phim sắp chiếu
+            li.nav-link(class=currentPage === 'popcorns' ? 'active' : '') 
+                i.fa-solid.fa-mug-hot
+                a(href=`${prefixAdmin}/popcorns`) Danh sách bắp nước
+            li.nav-link() 
+                i.fa-solid.fa-layer-group
+                a(href=`${prefixAdmin}/roles`) Nhóm quyền
+            li.nav-link() 
+                i.fa-regular.fa-clipboard
+                a(href=`${prefixAdmin}/roles/permissions`) Phân quyền
+            li.nav-link() 
+                i.fa-solid.fa-circle-user
+                a(href=`${prefixAdmin}/accounts`) Danh sách tài khoản
+            li.nav-link() 
+                i.fa-solid.fa-gear
+                a(href=`${prefixAdmin}/accounts`) Cài đặt chung
+            

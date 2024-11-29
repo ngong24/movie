@@ -1,0 +1,32 @@
+extends ../../layouts/default.pug
+
+block main 
+    #login
+        .modals_log-in
+            .modal
+                .modal__overlay
+                .login__middle-info
+                    .header__middle-info-close
+                        i.fa-solid.fa-xmark
+                    form(
+                        action=`/user/login`
+                        method="POST"
+                    )
+                        .header__middle-info-user
+                            img(src="/client/images/img_login.jpg", alt="")
+                            .header__middle-info-email
+                                span.header__middle-info-icon.ti-email
+                                input(type="email", class="header__middle-user-button", placeholder="Email", name="email", required)
+                            .header__middle-info-email
+                                i.header__middle-info-icon.ti-lock
+                                input(type="password", class="header__middle-user-button input-login", placeholder="Mật khẩu", name="password", required)
+                                i.fa-solid.fa-eye.hidden.eye-login
+                                i.fa-solid.fa-eye-slash.eye-slash-login
+                            div(class="form-group")
+                                button(
+                                    type="submit"
+                                    class="login__middle-button"
+                                ) Đăng nhập
+                            .header__middle-form-infor
+                                a(href="/user/register" class="login__middle-form-btn") Đăng ký ngay
+                                a(href="/user/password/forgot" class="login__middle-form-btn2") Quên mật khẩu
